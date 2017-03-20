@@ -1,0 +1,29 @@
+<%# Errors renders for an Array of a model Bootstrap Style #%>
+<% if object and object.kind_of?(Array) %>
+    <% class_name = object[0].class.name.downcase.gsub('::', '_') %>
+
+    <% errors_tot = errors_rows = 0 %>
+    <% object.each do |obj| %>
+        <% if obj.errors.count > 0 %>
+            <% errors_tot += obj.errors.count %>
+            <% errors_rows += 1 %>
+        <% end %>
+    <% end %>
+    <% if errors_tot > 0 %>
+
+        <div id="errorMessageC" class="alert fade in alert-danger alert-dismissable">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+          <h5>
+            <% if errors_tot > 1 %>
+                <% if errors_rows == 1 %>
+                    <%= t('forms.errors.'+class_name+'s.other_row', tot: errors_tot, rows: errors_rows) %>
+                <% else %>
+                    <%= t('forms.errors.'+class_name+'s.other_rows', tot: errors_tot, rows: errors_rows) %>
+                <% end %>
+            <% elsif errors_tot == 1 %>
+                <%= t('forms.errors.'+class_name+'s.one') %>
+            <% end %>
+          </h5>
+        </div>
+    <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<%# Errors renders for any model Bootstrap Style #%>
+<% if object.errors.any? %>
+    <% class_name = object.class.name.downcase.gsub('::', '_') %>
+
+    <div id="errorMessageA" class="alert fade in alert-danger alert-dismissable">
+      <button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+      <h5>
+        <% if object.errors.count > 1 %>
+            <%= t('forms.errors.'+class_name+'.other', count: object.errors.count) %>
+        <% else %>
+            <%= t('forms.errors.'+class_name+'.one') %>
+        <% end %>
+      </h5>
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+            <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="authform">
+  <h2>Log in</h2>
+
+  <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <%- if devise_mapping.recoverable? %>
+              <div class="right">
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+              </div>
+          <% end -%>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <%= f.password_field :password, autocomplete: 'off', help: 'Must be at least 6 characters long' %>
+        </div>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+          <div class="row">
+            <div class="col-xs-8 col-md-8 col-lg-8">
+              <%= f.fa_check_box :remember_me, class: 'checkbox-warning', label: 'Remember me' %>
+            </div>
+          </div>
+      <% end -%>
+      <div class="right">
+        <%= f.submit 'Log in' %>
+      </div>
+
+  <% end %>
+
+</div>

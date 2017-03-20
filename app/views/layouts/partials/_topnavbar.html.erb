@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+  <div class="navbar-header">
+    <ul class="nav navbar-left top-nav">
+      <li>
+        <a class="navbar-brand" href="#">
+        <div class="brand-logo">
+          <img src="<%= image_path('logo.png') %>" alt="App Logo" class="img-responsive"/>
+        </div>
+        </a>
+      </li>
+      <% if user_signed_in? %>
+          <li>
+            <a data-no-turbolink='true' id="toggle-nav" href="#" class="toggle-nav menu-btn">
+              <i class="icon-top fa fa-bars fa-2x"></i>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <ul class="nav navbar-right top-nav">
+    <% if user_signed_in? %>
+        <li>
+          <%= link_to current_user.name+' C/O ', '#' %>
+        </li>
+        <li>
+          <% if current_user.seller_active and current_user.seller_active.dealer %>
+              <%= link_to current_user.seller_active.dealer.denomination, '#' %>
+          <% end %>
+          <% if current_user.dealer_active %>
+              <%= link_to current_user.dealer_active.denomination, '#' %>
+          <% end %>
+          <% if current_user.agency_active %>
+              <%= link_to current_user.agency_active.denomination, '#' %>
+          <% end %>
+          <% if current_user.comm_dir_active %>
+              <%= link_to current_user.comm_dir_active.denomination, '#' %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, 'data-no-turbolink' => true do %>
+              <i class="icon-top fa fa-sign-out fa-2x"></i>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</nav>

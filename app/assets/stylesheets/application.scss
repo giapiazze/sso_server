@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * --- Assets paths redefinition
+ *
+ */
+// import the CSS framework
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "font-awesome/variables";
+@import "awesome-bootstrap-checkbox";
+@import "devise_form";
+//@import "framework_and_overrides";
+//@import "bootstrap-datetimepicker";
+//@import "bootstrap-select";
+//@import "bootstrap3-switch";
+//@import "bootstrap-datepicker3";
+//@import "select2";
+//@import "select2-bootstrap";
+//@import "bootstrap-slider";
+//@import "fullcalendar";
+//@import "popup";
+//@import "webix";
+//@import "fileinput";
+//@import "spinkit";
+//@import "spinners/9-cube-grid";
+
+
+
+
+
+// New Theme
+// @import "style";
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,400italic,500italic,700,700italic,900,900italic");

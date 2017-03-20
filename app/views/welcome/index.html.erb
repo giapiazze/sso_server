@@ -1,0 +1,12 @@
+<h4 class="page-header">Exasat - Area Riservata</h4>
+
+<% if user_signed_in? %>
+    <p>Benvenuto <b><%= current_user.name %></b>,</p>
+    <p>in questa area riservata dedicata ai nostri dealers è possibile consultare e stampare le schede
+      di installazione mezzi che forniscono indicazioni utili all'installazione dei dispositivi di
+      localizzazione satellitare ExaSAT.</p>
+    <p></p>
+<% else %>
+    <p>Questa sezione è dedicata ai dealer convenzionati con i sistemi ExaSAT di Exatek srl.</p>
+<% end %>
+<p>Per qualsiasi informazione rivolgersi al numero verde 800.192.774</p>

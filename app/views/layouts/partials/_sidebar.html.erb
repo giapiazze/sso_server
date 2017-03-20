@@ -1,0 +1,470 @@
+<aside>
+  <ul id="pushyId" class="nav navbar-nav side-nav pushy pushy-open">
+    <!-- Administration -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_admin" title="<%= t('Administration') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-gear"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_ADMIN"><%= t('Administration') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_admin" class="submenu test nav collapse">
+            <li class="<%= 'active' if controller?('collaborator/agencies') %>">
+              <a data-no-turbolink='true' href="/collaborator/agencies" title="<%= t('CLB_Agency_Title') %>">
+                <span><%= t('CLB_Agency_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('collaborator/comm_dirs') %>">
+              <a data-no-turbolink='true' href="/collaborator/comm_dirs" title="<%= t('CLB_Comm_Dir_Title') %>">
+                <span><%= t('CLB_Comm_Dir_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('collaborator/sellers') %>">
+              <a data-no-turbolink='true' href="/collaborator/sellers" title="<%= t('CLB_Seller_Title') %>">
+                <span><%= t('CLB_Seller_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('owner/owners') %>">
+              <a data-no-turbolink='true' href="/owner/owners" title="<%= t('Owner_side_Title') %>">
+                <span><%= t('Owner_side_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('log/devices_logs') %>">
+              <a data-no-turbolink='true' href="/log/devices_logs" title="<%= t('Log_device_log_Titles') %>">
+                <span><%= t('Log_device_log_Titles') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('external_stat') %>">
+              <a data-no-turbolink='true' href="/external_stat/index" title="<%= t('external_stat') %>">
+                <span><%= t('external_stat') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('settings') %>">
+              <a data-no-turbolink='true' href="/settings/advanced" title="<%= t('menu_advanced') %>">
+                <span><%= t('menu_advanced') %></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Visit -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('visit') %>">
+          <a data-no-turbolink='true' href="#dashboard_auth" title="<%= t('Visit_Dashboard_Title') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-search-plus"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_AUTH"><%= t('Visit_Dashboard_Title') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_auth" class="submenu nav collapse">
+            <li class="<%= 'active' if controller?('visit/visits') %>">
+              <a data-no-turbolink='true' href="/visit/visits" title="<%= t('Visit_Dashboard_Title') %>">
+                <span><%= t('Visit_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('visit/events') %>">
+              <a data-no-turbolink='true' href="/visit/events" title="<%= t('Event_Dashboard_Title') %>">
+                <span><%= t('Event_Dashboard_Title') %></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Authorization -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_auth" title="<%= t('Authorizations') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-key"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_AUTH"><%= t('Authorizations') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_auth" class="submenu nav collapse">
+            <li class="<%= 'active' if controller?('sat/devices_customers') %>">
+              <a data-no-turbolink='true' href="/sat/devices_customers" title="<%= t('Sat_devices_customer_Dashboard_Title') %>">
+                <span><%= t('Sat_devices_customer_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('sat/devices_dealers_filials') %>">
+              <a data-no-turbolink='true' href="/sat/devices_dealers_filials" title="<%= t('Sat_devices_dealers_filial_Dashboard_Title') %>">
+                <span><%= t('Sat_devices_dealers_filial_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('sat/devices_owners') %>">
+              <a data-no-turbolink='true' href="/sat/devices_owners" title="<%= t('Sat_devices_owner_Dashboard_Title') %>">
+                <span><%= t('Sat_devices_owner_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('collaborator/sellers_users') %>">
+              <a data-no-turbolink='true' href="/collaborator/sellers_users" title="<%= t('CLB_Sellers_User_Dashboard_Title') %>">
+                <span><%= t('CLB_Sellers_User_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('dealer/filials_users') %>">
+              <a data-no-turbolink='true' href="/dealer/filials_users" title="<%= t('Filials_User_Dashboard_Title') %>">
+                <span><%= t('Filials_User_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('collaborator/agencies_users') %>">
+              <a data-no-turbolink='true' href="/collaborator/agencies_users" title="<%= t('CLB_Agencies_User_Dashboard_Title') %>">
+                <span><%= t('CLB_Agencies_User_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('collaborator/comm_dirs_users') %>">
+              <a data-no-turbolink='true' href="/collaborator/comm_dirs_users" title="<%= t('CLB_Comm_Dirs_User_Dashboard_Title') %>">
+                <span><%= t('CLB_Comm_Dirs_User_Dashboard_Title') %></span>
+              </a>
+            </li>
+            <li class="<%= 'active' if controller?('owner/owners_users') %>">
+              <a data-no-turbolink='true' href="/owner/owners_users" title="<%= t('Owners_User_Dashboard_Title') %>">
+                <span><%= t('Owners_User_Dashboard_Title') %></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Document -->
+    <% if current_user.admin? or current_user.super_admin? or current_user.seller? or
+        current_user.filial_user? or current_user.filial_admin? or
+        current_user.dealer_user? or current_user.dealer_admin? or
+        current_user.agency_user? or current_user.agency_admin? or
+        current_user.comm_dir_user? or current_user.comm_dir_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_docs" title="<%= t('Doc_side_Title') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-file-text"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_DOCS"><%= t('Doc_side_Title') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_docs" class="submenu nav collapse">
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('doc/counters') %>">
+                  <a data-no-turbolink='true' href="/doc/counters" title="<%= t('Counter_side_Title') %>">
+                    <span><%= t('Counter_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('doc/vats') %>">
+                  <a data-no-turbolink='true' href="/doc/vats" title="<%= t('Vat_side_Title') %>">
+                    <span><%= t('Vat_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('doc/counter_types') %>">
+                  <a data-no-turbolink='true' href="/doc/counter_types" title="<%= t('Counter_Type_side_Title') %>">
+                    <span><%= t('Counter_Type_side_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+            <% if current_user.admin? or current_user.super_admin? or current_user.seller? or
+                current_user.filial_user? or current_user.filial_admin? or
+                current_user.dealer_user? or current_user.dealer_admin? or
+                current_user.agency_user? or current_user.agency_admin? or
+                current_user.comm_dir_user? or current_user.comm_dir_admin? %>
+                <li class="<%= 'active' if controller?('doc/orders') %>">
+                  <a data-no-turbolink='true' href="/doc/orders" title="<%= t('Order_side_Title') %>">
+                    <span><%= t('Order_side_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+            <% if current_user.admin? or current_user.super_admin? or current_user.seller? or
+                current_user.dealer_user? or current_user.dealer_admin? or
+                current_user.agency_user? or current_user.agency_admin? or
+                current_user.comm_dir_user? or current_user.comm_dir_admin? %>
+                <li class="<%= 'active' if controller?('doc/order_quotes') %>">
+                  <a data-no-turbolink='true' href="/doc/order_quotes" title="<%= t('Order_Quote_side_Title') %>">
+                    <span><%= t('Order_Quote_side_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+            <% if current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('doc/invoices') %>">
+                  <a data-no-turbolink='true' href="/doc/invoices" title="<%= t('Invoice_side_Title') %>">
+                    <span><%= t('Invoice_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('doc/invoice_payments') %>">
+                  <a data-no-turbolink='true' href="/doc/invoice_payments" title="<%= t('Invoice_Payment_side_Title') %>">
+                    <span><%= t('Invoice_Payment_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('doc/reports') %>">
+                  <a data-no-turbolink='true' href="/doc/reports" title="<%= t('Report_side_Title') %>">
+                    <span><%= t('Report_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('doc/suppliers') %>">
+                  <a data-no-turbolink='true' href="/doc/suppliers" title="<%= t('Supplier_side_Title') %>">
+                    <span><%= t('Supplier_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('quote/prod_dividends') %>">
+                  <a data-no-turbolink='true' href="/quote/prod_dividends" title="<%= t('Prod_Dividend_side_Title') %>">
+                    <span><%= t('Prod_Dividend_side_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('quote/dividends_entities') %>">
+                  <a data-no-turbolink='true' href="/quote/dividends_entities" title="<%= t('Dividends_Entity_side_Title') %>">
+                    <span><%= t('Dividends_Entity_side_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Dealer -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') or controller?('dealer') or controller?('block') %>">
+          <a data-no-turbolink='true' href="#dashboard_dealer" title="<%= t('Dealer_Titles') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-institution"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_DEALER"><%= t('Dealer_Titles') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_dealer" class="submenu nav collapse">
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('dealer/dealers') %>">
+                  <a data-no-turbolink='true' href="/dealer/dealers" title="<%= t('Dealer_Titles') %>">
+                    <span><%= t('Dealer_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('dealer/filials_deposits') %>">
+                  <a data-no-turbolink='true' href="/dealer/filials_deposits" title="<%= t('Filial_Deposit_Titles') %>">
+                    <span><%= t('Filial_Deposit_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('dealer/filials_stocks') %>">
+                  <a data-no-turbolink='true' href="/dealer/filials_stocks" title="<%= t('Filial_Stock_Titles') %>">
+                    <span><%= t('Filial_Stock_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('dealer/filials_mov_stocks') %>">
+                  <a data-no-turbolink='true' href="/dealer/filials_mov_stock/index_fl?utf8=✓&receiver_kind=Dealer::Filial" title="<%= t('Filial_Mov_Stock_Titles') %>">
+                    <span><%= t('Filial_Mov_Stock_Titles') %></span>
+                  </a>
+                </li>
+                <li class="sub <%= 'active' if controller?('block') %>">
+                  <a data-no-turbolink='true' href="#dashboard_dealer_manage" title="<%= t('ADV_Settings_Link_Show') %>" aria-expanded="false">
+                    <i class="fa fa-fw fa-plus"></i>
+                    <span data-localize="sidebar.nav.DASHBOARD_DEALER_MANAGER"><%= t('ADV_Settings_Link_Show') %></span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul id="dashboard_dealer_manage" class="submenu nav collapse">
+                    <li class="<%= 'active' if controller?('block_types') %>">
+                      <a data-no-turbolink='true' href="/dealer/block_types" title="<%= t('Block_Type_Title') %>">
+                        <span><%= t('Block_Type_Title') %></span>
+                      </a>
+                    </li>
+                    <li class="<%= 'active' if controller?('dealers_blocks') %>">
+                      <a data-no-turbolink='true' href="/dealer/dealers_blocks" title="<%= t('Dealers_Block_Title') %>">
+                        <span><%= t('Dealers_Block_Title') %></span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Customer -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_customer" title="<%= t('Customer_customer_Titles') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-group"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_CUSTOMER"><%= t('Customer_customer_Titles') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_customer" class="submenu nav collapse">
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('customer/customers') %>">
+                  <a data-no-turbolink='true' href="/customer/customers" title="<%= t('Customer_customer_Titles') %>">
+                    <span><%= t('Customer_customer_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('customer/vehicles') %>">
+                  <a data-no-turbolink='true' href="/customer/vehicles" title="<%= t('Customer_vehicle_Titles') %>">
+                    <span><%= t('Customer_vehicle_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('customer/policies') %>">
+                  <a data-no-turbolink='true' href="/customer/policies" title="<%= t('Customer_policy_Titles') %>">
+                    <span><%= t('Customer_policy_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('customer/contracts') %>">
+                  <a data-no-turbolink='true' href="/customer/contracts" title="<%= t('Customer_contract_Titles') %>">
+                    <span><%= t('Customer_contract_Titles') %></span>
+                  </a>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- SAT -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_sat" title="<%= t('Sat') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-globe"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_SAT"><%= t('Sat') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_sat" class="submenu nav collapse">
+
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('sat/devices') %>">
+                  <a data-no-turbolink='true' href='/sat/devices' title="<%= t('Sat_device_Dashboard_Title') %>">
+                    <span><%= t('Sat_device_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/devices_sims') %>">
+                  <a data-no-turbolink='true' href='/sat/devices_sims' title="<%= t('Sat_devices_sim_Dashboard_Title') %>">
+                    <span><%= t('Sat_devices_sim_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/devices_states') %>">
+                  <a data-no-turbolink='true' href='/sat/devices_states' title="<%= t('Sat_devices_state_Dashboard_Title') %>">
+                    <span><%= t('Sat_devices_state_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/devices_firmwares') %>">
+                  <a data-no-turbolink='true' href='/sat/devices_firmwares' title="<%= t('Sat_devices_firmware_Dashboard_Title') %>">
+                    <span><%= t('Sat_devices_firmware_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/devices_boxes') %>">
+                  <a data-no-turbolink='true' href='/sat/devices_boxes' title="<%= t('Sat_devices_box_Dashboard_Title') %>">
+                    <span><%= t('Sat_devices_box_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/supplier_invoices') %>">
+                  <a data-no-turbolink='true' href='/sat/supplier_invoices' title="<%= t('Sat_supplier_invoice_Dashboard_Title') %>">
+                    <span><%= t('Sat_supplier_invoice_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/invoice_attachments') %>">
+                  <a data-no-turbolink='true' href='/sat/invoice_attachments' title="<%= t('Sat_invoice_attachment_Dashboard_Title') %>">
+                    <span><%= t('Sat_invoice_attachment_Dashboard_Title') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('sat/devices_keys') %>">
+                  <a data-no-turbolink='true' href='/sat/devices_keys' title="<%= t('Sat_devices_key_Dashboard_Title') %>">
+                    <span><%= t('Sat_devices_key_Dashboard_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- SIM -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_sim" title="<%= t('Sim') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-credit-card"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_SIM"><%= t('Sim') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_sim" class="submenu nav collapse">
+
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('sim/cards') %>">
+                  <a data-no-turbolink='true' href='/sim/cards' title="<%= t('Sim_card_Dashboard_Title') %>">
+                    <span><%= t('Sim_card_Dashboard_Title') %></span>
+                  </a>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- Delivery -->
+    <% if current_user.admin? or current_user.super_admin? %>
+        <li class="<%= 'active' if controller?('welcome') %>">
+          <a data-no-turbolink='true' href="#dashboard_delivery" title="<%= t('Delivery_delivery_Titles') %>" aria-expanded="false">
+            <i class="fa fa-fw fa-truck"></i>
+            <span data-localize="sidebar.nav.DASHBOARD_DELIVERY"><%= t('Delivery_delivery_Titles') %></span>
+            <span class="fa arrow"></span>
+          </a>
+          <ul id="dashboard_delivery" class="submenu nav collapse">
+
+            <% if current_user.admin? or current_user.super_admin? %>
+                <li class="<%= 'active' if controller?('delivery/preparations') %>">
+                  <a data-no-turbolink='true' href='/delivery/preparations' title="<%= t('Delivery_preparation_Titles') %>">
+                    <span><%= t('Delivery_preparation_Titles') %></span>
+                  </a>
+                </li>
+                <li class="<%= 'active' if controller?('delivery/deliveries') %>">
+                  <a data-no-turbolink='true' href='/delivery/deliveries' title="<%= t('Delivery_delivery_Titles') %>">
+                    <span><%= t('Delivery_delivery_Titles') %></span>
+                  </a>
+                </li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+    <!-- CDS -->
+    <li class="<%= 'active' if controller?('welcome') %>">
+      <a data-no-turbolink='true' href="#dashboard_cds" title="<%= t('CDS_Titles') %>" aria-expanded="false">
+        <i class="fa fa-fw fa-car"></i>
+        <span data-localize="sidebar.nav.DASHBOARD_CDS"><%= t('CDS_Titles') %></span>
+        <span class="fa arrow"></span>
+      </a>
+      <ul id="dashboard_cds" class="submenu nav collapse">
+        <li class="<%= 'active' if controller?('cds/car_data_sheets') %>">
+          <a data-no-turbolink='true' href="/cds/car_data_sheets" title="<%= t('CDS_ListTitle') %>">
+            <span><%= t('CDS_ListTitle') %></span>
+          </a>
+        </li>
+        <li class="<%= 'active' if controller?('cds/requests') %>">
+          <a data-no-turbolink='true' href="/cds/requests" title="<%= t('CDS_REQ_TitleRequests') %>">
+            <span><%= t('CDS_REQ_TitleRequests') %></span>
+          </a>
+        </li>
+        <% if current_user.admin? or current_user.super_admin? %>
+            <li class="<%= 'active' if controller?('cds/pictures') %>">
+              <a data-no-turbolink='true' href="/cds/pictures" title="<%= t('CDS_PIC_Title') %>">
+                <span><%= t('CDS_PIC_Title') %></span>
+              </a>
+            </li>
+        <% end %>
+      </ul>
+    </li>
+    <!-- DOWNLOAD -->
+    <li class="<%= 'active' if controller?('download') %>">
+      <a data-no-turbolink='true' href="#dashboard_cds" title="Download" aria-expanded="false">
+        <i class="fa fa-fw fa-book"></i>
+        <span data-localize="sidebar.nav.DASHBOARD_CDS">Area Download</span>
+        <span class="fa arrow"></span>
+      </a>
+      <ul id="dashboard_cds" class="submenu nav collapse">
+        <li class="<%= 'active' if controller?('download/index') %>">
+          <a data-no-turbolink='true' href="/download/index" title="Area Download">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- Dating -->
+    <li class="<%= 'active' if controller?('appointment') %>">
+      <a data-no-turbolink='true' href="#dating" title="<%= t('appointments_Title') %>" aria-expanded="false">
+        <i class="fa fa-calendar"></i>
+        <span data-localize="sidebar.nav.DATING_CDS"> <%= t('appointments_Title') %> </span>
+        <span class="fa arrow"></span>
+      </a>
+      <ul id="dating_cds" class="submenu nav collapse">
+        <li class="<%= 'active' if controller?('dating/appointment') %>">
+          <a data-no-turbolink='true' href="/dating/appointments/events" title="<%= t('appointments_Title') %>" >
+            <span><%= t('appointments_Title') %></span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- CRM -->
+    <li class="<%= 'active' if controller?('crm') %>">
+      <a data-no-turbolink='true' href="#crm" title="<%= t('Crm_ticket_Title') %>" aria-expanded="false">
+        <i class="fa fa-calendar"></i>
+        <span data-localize="sidebar.nav.DATING_CDS"> <%= t('Crm_ticket_Title') %> </span>
+        <span class="fa arrow"></span>
+      </a>
+      <ul id="dating_cds" class="submenu nav collapse">
+        <li class="<%= 'active' if controller?('crm/ticket') %>">
+          <a data-no-turbolink='true' href="/crm/tickets" title="<%= t('Crm_ticket_Title') %>" >
+            <span><%= t('Crm_ticket_Title') %></span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>

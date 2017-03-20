@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="<%= t('AppDescription') %>">
+  <meta name="keywords" content="<%= t('AppKeyWords') %>">
+  <title>SSO Server</title>
+  <!-- Favicon-->
+  <%= favicon_link_tag 'favicon.ico' %>
+  <!-- =============== APPLICATION STYLES ===============-->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true, id: "maincss" %>
+  <!-- =============== VIEW VENDOR STYLES ===============-->
+  <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true if stylesheet_exists?(params[:controller]) %>
+  <%= csrf_meta_tags %>
+</head>
+<body data-no-turbolink='true'>
+
+<!-- top navbar-->
+<header>
+  <%= render partial: "layouts/partials/topnavbar" %>
+</header>
+
+<!-- sidebar-->
+<% if user_signed_in? %>
+    <%= render partial: "layouts/partials/sidebar" %>
+<% end %>
+<!-- Main section-->
+
+<!-- Page content-->
+<div id="container" class="container-fluid container-push">
+  <section id="page-wrapper" class="panel rounded">
+    <%= render partial: "layouts/partials/messages" %>
+    <%= yield %>
+
+  </section>
+</div>
+<!-- =================== MODERNIZER ===================-->
+<%= javascript_include_tag :modernizr %>
+<!-- =============== APPLICATION SCRIPTS ===============-->
+<%= javascript_include_tag 'application' %>
+<!-- =============== VIEW VENDOR SCRIPTS ===============-->
+<%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true  if javascript_exists?(params[:controller]) %>
+</body>
+</html>
